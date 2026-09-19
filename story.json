@@ -12,8 +12,8 @@
       "video": "videos/v1.mp4",
       "question": "What would you change if you got into power?",
       "answers": {
-        "L": { "text": "I'd bring back the Moa", "clip": "videos/v11.mp4", "clipLabel": "1.1", "note": "Moa runs on stage, squawks, runs off.", "next": "v2" },
-        "R": { "text": "I'd give everyone their own kiwi!", "clip": "videos/v12.mp4", "clipLabel": "1.2", "note": "Legend grabs kiwis from under his podium, throws them to the crowd: 'You get a kiwi, you get a kiwi!'", "next": "v2" }
+        "L": { "text": "Crack it", "clip": "videos/v11.mp4", "clipLabel": "1.1", "note": "Moa runs on stage, squawks, runs off.", "next": "v2" },
+        "R": { "text": "Wait", "clip": "videos/v12.mp4", "clipLabel": "1.2", "note": "Legend grabs kiwis from under his podium, throws them to the crowd: 'You get a kiwi, you get a kiwi!'", "next": "v2" }
       }
     },
     "v2": {
