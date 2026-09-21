@@ -107,7 +107,7 @@
   /* Upload / controls */
   #controls {
     position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 10px; align-items: center;
+    display: none; gap: 10px; align-items: center;
     pointer-events: auto;
     background: rgba(0,0,0,.5); padding: 8px 12px; border-radius: 12px;
     backdrop-filter: blur(6px); color: #fff; font-size: 13px;
@@ -213,7 +213,7 @@
     <div id="hud">
       <div style="display:flex;align-items:center;gap:14px;pointer-events:auto;">
         <button id="restartBtn" style="background:rgba(0,0,0,.5);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:10px;padding:8px 14px;font-weight:700;font-size:15px;cursor:pointer;">Restart</button>
-        <div class="title">Interactive Video Game</div>
+        <div class="title"></div>
       </div>
       <div id="dots"></div>
       <div style="display:flex;align-items:center;gap:16px;pointer-events:auto;">
