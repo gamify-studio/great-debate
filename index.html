@@ -501,10 +501,6 @@ function renderDots() {
   if (!story) return;
   dots.innerHTML = '';
   const idx = Math.max(0, path.indexOf(nodeId));
-  const label = document.createElement('span');
-  label.className = 'label';
-  label.textContent = 'Round ' + (idx + 1) + ' / ' + path.length;
-  dots.appendChild(label);
   path.forEach((id, i) => {
     const d = document.createElement('span');
     d.className = 'dot' + (i === idx ? ' on' : '') + (i < idx ? ' done' : '');
