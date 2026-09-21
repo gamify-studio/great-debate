@@ -560,8 +560,10 @@ document.getElementById('useDefault').addEventListener('click', () => {
 // ---- Tap to start: one tap on the first frame begins with sound ----
 const tapEl = document.getElementById('tap');
 function goFullscreen() {
-  // Android/desktop: true fullscreen hides the address bar + tabs. iOS Safari
-  // has no element fullscreen — there the home-screen web-app (manifest) is the path.
+  // Phones only: hide the mobile browser's address bar + tabs. Skip desktop
+  // (mouse / fine pointer) so a computer doesn't blow up to fullscreen.
+  const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  if (!isTouch) return;
   const el = document.documentElement;
   const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
   if (req) { try { req.call(el).catch(()=>{}); } catch (e) {} }
