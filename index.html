@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Interactive Video Game</title>
+<!-- Fullscreen web-app: launch chrome-free from the home screen -->
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#000000" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Debate" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: -apple-system, system-ui, sans-serif; }
@@ -563,10 +571,18 @@ document.getElementById('useDefault').addEventListener('click', () => {
 
 // ---- Tap to start: one tap on the first frame begins with sound ----
 const tapEl = document.getElementById('tap');
+function goFullscreen() {
+  // Android/desktop: true fullscreen hides the address bar + tabs. iOS Safari
+  // has no element fullscreen — there the home-screen web-app (manifest) is the path.
+  const el = document.documentElement;
+  const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+  if (req) { try { req.call(el).catch(()=>{}); } catch (e) {} }
+}
 tapEl.addEventListener('click', () => {
   tapEl.style.display = 'none';
   started = true;
   unlockAudio();                        // this tap satisfies the audio gesture
+  goFullscreen();                       // take over the whole screen (where supported)
   vMain.currentTime = 0;
   vMain.play().catch(()=>{});
 });
