@@ -451,7 +451,11 @@ const els = {
   R: { zone: zoneR, count: document.getElementById('countR'), name: document.getElementById('nameR'), ans: document.getElementById('ansR') }
 };
 
+// Temporary: picks are disabled until the remaining videos are updated.
+// Flip this back to true to re-enable choosing / progression.
+const CHOICES_ENABLED = false;
 function handleZone(side) {
+  if (!CHOICES_ENABLED) return;        // TEMP: clicking a candidate does nothing for now
   const now = Date.now();
   if (!choosing) return;               // boxes only active after the video ends
   if (clipPlaying) return;             // one click per video — no clicking mid-clip
